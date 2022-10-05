@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 body {
     max-width: 100%;
@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: 'Orbitron', sans-serif;
     background-color: rgb(237, 240, 245);
     color: black;
 }
@@ -67,6 +67,23 @@ body {
     border-radius: 15px;
 }
 
+.line1,
+.line2 {
+    text-align: end;
+    margin: 15px;
+}
+
+.line1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.line2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: -5px;
+}
+
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
@@ -74,10 +91,11 @@ body {
 }
 
 button {
+    font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     width: 60px;
     height: 60px;
-    font-size:16px;
+    font-size: 24px;
     background-color: white;
     box-shadow: 3px 3px;
     outline: none;
