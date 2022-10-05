@@ -48,9 +48,45 @@ body {
     margin-left: 5px;
 }
 
-/* Media queries */
-@media (max-width: 550px) {
-    .calculator {
-        width: 350px;
-    }
+/* Calculator */
+.calculator {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    background-color: gray;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.screen {
+    height: 100px;
+    width: auto;
+    background-color: aliceblue;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 10px;
+}
+
+button {
+    font-weight: 700;
+    width: 60px;
+    height: 60px;
+    font-size:16px;
+    background-color: white;
+    box-shadow: 3px 3px;
+    outline: none;
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+button:active{
+    transform: scale(1.2);
 }
