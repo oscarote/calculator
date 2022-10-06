@@ -1,18 +1,18 @@
 // Math functions
 function add(a, b) {
-    return parseFloat(a) + parseFloat(b);
+    return roundDecimals(parseFloat(a) + parseFloat(b));
 };
 
 function subtract(a, b) {
-    return parseFloat(b) - parseFloat(a);
+    return roundDecimals(parseFloat(b) - parseFloat(a));
 };
 
 function multiply(a, b) {
-    return parseFloat(a) * parseFloat(b);
+    return roundDecimals(parseFloat(a) * parseFloat(b));
 };
 
 function divide(a, b) {
-    return parseFloat(a) / parseFloat(b);
+    return roundDecimals(parseFloat(a) / parseFloat(b));
 };
 
 function operate(operator, a, b) {
@@ -171,4 +171,9 @@ function finishOperation() {
     if (numberTwo === "") return;
     operate(operator, numberOne, numberTwo);
     operationFinished = "yes";
+};
+
+// Round to 3 decimals function
+function roundDecimals(number) {
+    return Math.round((number + Number.EPSILON) * 1000) / 1000;
 };
