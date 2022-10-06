@@ -59,8 +59,8 @@ body {
 }
 
 .screen {
-    height: 100px;
-    width: auto;
+    min-height: 110px;
+    width: 266px;
     background-color: aliceblue;
     margin-bottom: 20px;
     border: 2px solid black;
@@ -71,15 +71,18 @@ body {
 .line2 {
     text-align: end;
     margin: 15px;
+    overflow-wrap: break-word;
 }
 
 .line1 {
     font-size: 20px;
+    min-height: 20px;
     font-weight: 600;
 }
 
 .line2 {
     font-size: 36px;
+    min-height: 36px;
     font-weight: 700;
     margin-top: -5px;
 }
