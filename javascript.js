@@ -1,6 +1,6 @@
 // Math functions
 function add(a, b) {
-    return roundDecimals(parseFloat(a) + parseFloat(b));
+    return roundDecimals(parseFloat(b) + parseFloat(a));
 };
 
 function subtract(a, b) {
@@ -8,14 +8,18 @@ function subtract(a, b) {
 };
 
 function multiply(a, b) {
-    return roundDecimals(parseFloat(a) * parseFloat(b));
+    return roundDecimals(parseFloat(b) * parseFloat(a));
 };
 
 function divide(a, b) {
-    return roundDecimals(parseFloat(a) / parseFloat(b));
+    return roundDecimals(parseFloat(b) / parseFloat(a));
 };
 
 function operate(operator, a, b) {
+    if (a === "0" && operator === "÷") {
+        errorCalc();
+        return;
+    }
     operation += " " + numberOne + " =";
     switch (operator) {
         case "+":
@@ -54,6 +58,7 @@ equalBtn.addEventListener("click", finishOperation);
 
 const decimalBtn = document.getElementById("decimal");
 decimalBtn.addEventListener("click", () => {
+    if (numberOne.includes(".")) return;
     numberOne += ".";
     refreshScreen();
 });
@@ -88,9 +93,9 @@ function handleKey(e) {
     if (isFinite(e.key)) {
         handleNumber(e.key);
     } else if (e.key === "/") {
-        handleOperator("×");
-    } else if (e.key === "*") {
         handleOperator("÷");
+    } else if (e.key === "*") {
+        handleOperator("×");
     } else if (e.key === "+" || e.key === "-") {
         handleOperator(e.key);
     } else if (e.key === "=" || e.key === "Enter") {
@@ -98,6 +103,7 @@ function handleKey(e) {
     } else if (e.key === "Backspace") {
         deleteLast();
     } else if (e.key === "," || e.key === ".") {
+        if (numberOne.includes(".")) return;
         numberOne += ".";
         refreshScreen();
     }
@@ -177,3 +183,10 @@ function finishOperation() {
 function roundDecimals(number) {
     return Math.round((number + Number.EPSILON) * 1000) / 1000;
 };
+
+// Alert if 
+function errorCalc() {
+    alert("It is not possible to divide by 0");
+    resetScreen();
+    bottomLine.textContent = "ERROR";
+}
