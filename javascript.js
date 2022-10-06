@@ -116,8 +116,7 @@ function deleteLast() {
 };
 
 function handleNumber(num) {
-    if (operationFinished === "yes") {
-        resetScreen();
+    if (operationFinished === "yes" && lastResult !== "") {
         operationFinished = "no";    
         numberOne += num;
         refreshScreen();
@@ -133,7 +132,7 @@ function handleNumber(num) {
 };
 
 function handleOperator(ope) {
-    if (!numberTwo && ope === "-") {
+    if (operationFinished === "yes" && upperLine.textContent === "" && ope === "-" && numberOne === "") {
         numberOne = "-";
         refreshScreen();
     } else if (operationFinished === "no" && operation.charAt(operation.length - 1) !== "=" && operator !== "") {
