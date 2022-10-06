@@ -188,4 +188,4 @@ function errorCalc() {
     alert("It is not possible to divide by 0");
     resetScreen();
     bottomLine.textContent = "ERROR";
-}
+};
